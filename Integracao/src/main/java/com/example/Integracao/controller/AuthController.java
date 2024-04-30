@@ -22,6 +22,12 @@ public class AuthController {
  public AuthController(UsuarioRepository usuarioRepository) {
  this.usuarioRepository = usuarioRepository;
  }
+ 
+ 
+@PostMapping("/cadastro")
+public Usuario criarUsuario(@RequestBody Usuario usuario) {
+    return usuarioRepository.save(usuario);
+}
 
  @PostMapping("/login")
  public Boolean login(@RequestBody Usuario usuario) {
